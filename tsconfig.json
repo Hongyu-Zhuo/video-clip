@@ -17,7 +17,17 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "coommon": [
+        "dist/coommon/coommon",
+        "dist/coommon"
+      ],
+      "context": [
+        "dist/context/context",
+        "dist/context"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,

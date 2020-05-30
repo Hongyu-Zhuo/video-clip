@@ -12,7 +12,7 @@
       },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "app",
+      "prefix": "vc",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -28,7 +28,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles/styles.scss"
             ],
             "scripts": []
           },
@@ -92,7 +92,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles/styles.scss"
             ],
             "scripts": []
           }
@@ -120,6 +120,86 @@
             "production": {
               "devServerTarget": "video-clip:serve:production"
             }
+          }
+        }
+      }
+    },
+    "coommon": {
+      "projectType": "library",
+      "root": "projects/coommon",
+      "sourceRoot": "projects/coommon/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/coommon/tsconfig.lib.json",
+            "project": "projects/coommon/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/coommon/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/coommon/src/test.ts",
+            "tsConfig": "projects/coommon/tsconfig.spec.json",
+            "karmaConfig": "projects/coommon/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/coommon/tsconfig.lib.json",
+              "projects/coommon/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "context": {
+      "projectType": "library",
+      "root": "projects/context",
+      "sourceRoot": "projects/context/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/context/tsconfig.lib.json",
+            "project": "projects/context/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/context/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/context/src/test.ts",
+            "tsConfig": "projects/context/tsconfig.spec.json",
+            "karmaConfig": "projects/context/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/context/tsconfig.lib.json",
+              "projects/context/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         }
       }
