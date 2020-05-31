@@ -1,0 +1,51 @@
+@use "../../../styles/mixin.scss" as *;
+@use "../../../styles/theme.scss" as *;
+
+$primary: map-get($map: $theme, $key: primary);
+
+%flex-row-cc {
+    @include flexLayout();
+    @include flexLayoutAlign(center, center);
+}
+%flex-column-cc {
+    @include flexLayout(column);
+    @include flexLayoutAlign(center, center);
+}
+:host {
+    .side-menu-wrap {
+        @include flexLayout(column);
+        @include flexLayoutAlign(start, center);
+        @include box(60px, 100%);
+        background: #272731;
+    }
+    .menu-btn {
+        position: relative;
+        @include box(36px, 36px);
+        margin: 16px 0px 12px;
+        cursor: pointer;
+    }
+    .menu-item {
+        @include box(60px, 60px);
+        @extend %flex-column-cc;
+        border-left: 2px solid transparent;
+        transition: border-color .2s ease-in-out 0;
+        &.active {
+            border-color: $primary;
+        }
+    }
+    .menu-icon {
+        @extend %flex-column-cc;
+        @include box(32px, 32px);
+        svg {
+            color: #fff;
+        }
+    }
+    .menu-text {
+        margin-top: 5px;
+        text-transform: capitalize;
+        font-size: 9px;
+        word-wrap: nowrap;
+        color: rgb(192, 192, 205);
+
+    }
+}
