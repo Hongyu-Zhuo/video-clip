@@ -1,0 +1,17 @@
+@mixin  box($width, $height, $padding: null, $border: null, $margin: null) {
+    width: $width;
+    height: $height;
+    padding: $padding;
+    border: $border;
+    margin: $margin;
+}
+
+@mixin flexLayout($dirction: row, $wrap: nowrap) {
+    display: flex;
+    flex-direction: $dirction;
+    flex-wrap: $wrap;
+}
+@mixin  flexLayoutAlign($justify: start, $align-items: start) {
+    justify-content: $justify;
+    align-items: $align-items;
+}
