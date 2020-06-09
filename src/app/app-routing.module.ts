@@ -6,6 +6,10 @@ const routes: Routes = [
   {
     path: 'editor',
     loadChildren: () => import('./video-editor/video-editor.module').then(m => m.VideoEditorModule)
+  },
+  {
+    path: '**',
+    redirectTo: 'editor'
   }
 ];
 
