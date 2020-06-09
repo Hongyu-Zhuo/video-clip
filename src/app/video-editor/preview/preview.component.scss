@@ -1,0 +1,8 @@
+@use "../../../styles/mixin" as *;
+@use "../../../styles/theme" as *;
+
+:host {
+    @include flexLayout(column);
+    @include flexLayoutAlign(start, center);
+    padding: 0 1rem;
+}
