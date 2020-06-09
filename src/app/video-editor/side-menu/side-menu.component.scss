@@ -1,5 +1,5 @@
-@use "../../../styles/mixin.scss" as *;
-@use "../../../styles/theme.scss" as *;
+@use "../../../styles/mixin" as *;
+@use "../../../styles/theme" as *;
 
 $primary: map-get($map: $theme, $key: primary);
 

@@ -1,5 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 @use './reset';
+:root {
+    --theme-dark: #1c1c26;
+}
+html {
+    font-family: "Source Sans Pro",sans-serif;
+}
 * {
     box-sizing: border-box;
+}
+@font-face {
+    url: '../'
 }

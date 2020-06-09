@@ -11,7 +11,7 @@
     flex-direction: $dirction;
     flex-wrap: $wrap;
 }
-@mixin  flexLayoutAlign($justify: start, $align-items: start) {
+@mixin  flexLayoutAlign($justify: flex-start, $align-items: flex-start) {
     justify-content: $justify;
     align-items: $align-items;
 }
