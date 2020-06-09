@@ -203,6 +203,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "video-clip"
+    }
+  },
+  "defaultProject": "video-clip",
+  "cli": {
+    "analytics": "5a48a806-0686-4c27-a8da-16bed5f0885f"
+  }
 }
