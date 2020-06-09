@@ -6,12 +6,39 @@
     p {
 
     }
-    .editor-container {
+}
+.editor-container {
+    
+}
+.editor-container {
+    width: 100%;
+    height: 100%;
+    .editor-header {
+        height: 85px;
+    }
+    .grid {
         width: 100%;
-        height: 100%;
+        height: calc(100% - 85px);
+        display: grid;
+        grid-template-areas: 
+            "sidebar sidebar preview aspectratio ."
+            "timeline timeline timeline timeline timeline";
+        grid-template-columns: 2.4vw 1fr 1.2fr 67px 2.4vw;
+        grid-template-rows: minmax(200px,1fr) minmax(200px,1fr);
+    }
+    .sidebar {
+        grid-area: sidebar;
+    }
+    .preview {
+        grid-area: preview;
+    }
+    .aspect-ratio {
+        grid-area: aspectratio;
+    }
+    .timeline {
+        grid-area: timeline;
     }
 }
-
 :export {
     // 可在 ts 文件中使用
     // exportedKey: $exportedValue;
