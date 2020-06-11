@@ -1,0 +1,20 @@
+:host {
+    ::ng-deep button.icon-button {
+        display: inline-flex;
+        align-items: center;
+        color: rgb(128, 129, 139);
+        background-color: rgba(255,255,255, .05);
+        cursor: pointer;
+        transition: background-color .2s ease-in-out, color .2s ease-in-out;
+        &:hover:not(:disabled) {
+            color: #fff;
+            background-color: rgba(255,255,255, .2);
+        }
+        &:disabled {
+            cursor: not-allowed;
+        }
+        &:nth-child(n):not(:last-child) {
+            margin-right: .315rem;
+        }
+    }
+}
