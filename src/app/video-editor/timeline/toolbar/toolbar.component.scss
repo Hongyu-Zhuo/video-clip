@@ -1,3 +1,11 @@
 .toolbar {
+    display: flex;
     padding: .25rem 2rem;
+    border-bottom: 1px solid rgb(48, 48, 58);
+}
+.undo-redo {
+    margin-right: .315rem;
+}
+.icon-button {
+    height: 32px;
 }

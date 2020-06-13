@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SideMenuComponent implements OnInit {
 
-  activeMenu: string;
+  activeMenu!: string;
   constructor() { }
 
   ngOnInit(): void {

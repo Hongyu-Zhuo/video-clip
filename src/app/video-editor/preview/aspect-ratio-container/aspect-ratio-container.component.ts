@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'vc-aspect-ratio-container',
@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AspectRatioContainerComponent implements OnInit {
 
+  @Input()
+  aspectRatio = '16:9';
+  
   constructor() { }
 
   ngOnInit(): void {
