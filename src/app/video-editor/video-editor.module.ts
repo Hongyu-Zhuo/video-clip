@@ -12,6 +12,11 @@ import { ToolbarComponent } from './timeline/toolbar/toolbar.component';
 import { ControlsComponent } from './preview/controls/controls.component';
 import { AspectRatioContainerComponent } from './preview/aspect-ratio-container/aspect-ratio-container.component';
 import { TimelineRulerComponent } from './timeline/timeline-ruler/timeline-ruler.component';
+import { TrackComponent } from './timeline/track/track.component';
+import { TrackItemComponent } from './timeline/track-item/track-item.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { LibraryComponent } from './sidebar/library/library.component';
+import { FileDropZoneComponent } from './sidebar/library/file-drop-zone/file-drop-zone.component';
 
 
 @NgModule({
@@ -24,7 +29,12 @@ import { TimelineRulerComponent } from './timeline/timeline-ruler/timeline-ruler
     ToolbarComponent,
     ControlsComponent,
     AspectRatioContainerComponent,
-    TimelineRulerComponent
+    TimelineRulerComponent,
+    TrackComponent,
+    TrackItemComponent,
+    SidebarComponent,
+    LibraryComponent,
+    FileDropZoneComponent
   ],
   imports: [
     CommonModule,

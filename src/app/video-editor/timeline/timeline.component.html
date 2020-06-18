@@ -1,6 +1,6 @@
 <vc-toolbar></vc-toolbar>
 <vc-timeline-ruler
-    [timelineWidth]="timelineWidth$"
+    [timelineWidth]="(timelineWidth$ | async)?.width"
 ></vc-timeline-ruler>
 <div #clipSpace>
 

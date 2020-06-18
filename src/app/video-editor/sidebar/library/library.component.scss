@@ -1,0 +1,13 @@
+@use "../../../../styles/mixin" as *;
+
+:host {
+    @include position();
+    display: block;
+    height: 100%;
+}
+vc-file-drop-zone {
+    @include position(absolute, 0,0,0,0);
+    overflow: hidden;
+    padding: 48px;
+    pointer-events: none;
+}

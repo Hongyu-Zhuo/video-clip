@@ -125,46 +125,6 @@
         }
       }
     },
-    "coommon": {
-      "projectType": "library",
-      "root": "projects/coommon",
-      "sourceRoot": "projects/coommon/src",
-      "prefix": "lib",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
-          "options": {
-            "tsConfig": "projects/coommon/tsconfig.lib.json",
-            "project": "projects/coommon/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "projects/coommon/tsconfig.lib.prod.json"
-            }
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/coommon/src/test.ts",
-            "tsConfig": "projects/coommon/tsconfig.spec.json",
-            "karmaConfig": "projects/coommon/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/coommon/tsconfig.lib.json",
-              "projects/coommon/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
-    },
     "context": {
       "projectType": "library",
       "root": "projects/context",
@@ -197,6 +157,46 @@
             "tsConfig": [
               "projects/context/tsconfig.lib.json",
               "projects/context/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "ngx-dnd": {
+      "projectType": "library",
+      "root": "projects/ngx-dnd",
+      "sourceRoot": "projects/ngx-dnd/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ngx-dnd/tsconfig.lib.json",
+            "project": "projects/ngx-dnd/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ngx-dnd/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-dnd/src/test.ts",
+            "tsConfig": "projects/ngx-dnd/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-dnd/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-dnd/tsconfig.lib.json",
+              "projects/ngx-dnd/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"

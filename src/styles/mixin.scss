@@ -15,3 +15,11 @@
     justify-content: $justify;
     align-items: $align-items;
 }
+
+@mixin position($p: relative, $top: null, $r: null, $bottom: null, $l: null) {
+    position: $p;
+    top: $top;
+    right: $r;
+    bottom: $bottom;
+    left: $l;
+}

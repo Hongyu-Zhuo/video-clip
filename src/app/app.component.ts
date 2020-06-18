@@ -1,3 +1,4 @@
+import { DndBackendService } from 'projects/ngx-dnd/src';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'video-clip';
+  constructor(
+    private dnd: DndBackendService
+  ) {
+
+  }
 }

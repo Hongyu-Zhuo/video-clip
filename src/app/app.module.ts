@@ -8,15 +8,18 @@ import { VideoEditorComponent } from './video-editor/video-editor.component';
 import '../assets/fonts/SourceSansPro-Bold.ttf';
 import '../assets/fonts/SourceSansPro-Regular.ttf';
 import '../assets/fonts/SourceSansPro-Semibold.ttf';
+import { NgxDndModule } from 'ngx-dnd';
+import { DndBackendService, DND_BACKEND_PROVIDE } from 'projects/ngx-dnd/src';
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgxDndModule
   ],
-  providers: [],
+  providers: [DND_BACKEND_PROVIDE],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
