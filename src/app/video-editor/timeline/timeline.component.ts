@@ -1,7 +1,9 @@
+
 import { Component, OnInit, AfterViewInit, OnDestroy, ViewChild, ElementRef, ChangeDetectionStrategy } from '@angular/core';
 import { BehaviorSubject, Subject } from 'rxjs';
 
 import { takeUntil } from 'rxjs/operators';
+import { Shortcut, ShortcutBase, NgxShortcutService } from 'projects/ngx-shortcut/src/public-api';
 
 @Component({
   selector: 'vc-timeline',
@@ -9,17 +11,19 @@ import { takeUntil } from 'rxjs/operators';
   styleUrls: ['./timeline.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TimelineComponent implements OnInit, AfterViewInit, OnDestroy {
+export class TimelineComponent extends ShortcutBase implements OnInit, AfterViewInit, OnDestroy {
 
   @ViewChild('clipSpace') private clipSpace!: ElementRef<HTMLDivElement>;
   unsubscribe$ = new Subject();
   timelineWidth$: BehaviorSubject<any> = new BehaviorSubject({} as DOMRect );
-  constructor() { }
+  constructor(
+    protected shortService: NgxShortcutService
+  )  { super(shortService) }
 
   ngOnInit(): void {
   }
   ngAfterViewInit() {
-    
+
     this.timelineWidth$.pipe(
       takeUntil(this.unsubscribe$)
     );
@@ -30,4 +34,14 @@ export class TimelineComponent implements OnInit, AfterViewInit, OnDestroy {
     this.unsubscribe$.complete();
   }
 
+  @Shortcut('Control', 'c')
+  doCopy(): void {
+    console.log('doCopy run');
+
+  }
+
+  @Shortcut('Control', 'v')
+  doPase() {
+    console.log('doPase run');
+  }
 }

@@ -37,6 +37,10 @@
       "ngx-dnd": [
         "dist/ngx-dnd/ngx-dnd",
         "dist/ngx-dnd"
+      ],
+      "ngx-shortcut": [
+        "dist/ngx-shortcut/ngx-shortcut",
+        "dist/ngx-shortcut"
       ]
     }
   },

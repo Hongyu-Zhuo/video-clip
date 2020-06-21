@@ -204,6 +204,46 @@
           }
         }
       }
+    },
+    "ngxShortcut": {
+      "projectType": "library",
+      "root": "projects/ngx-shortcut",
+      "sourceRoot": "projects/ngx-shortcut/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ngx-shortcut/tsconfig.lib.json",
+            "project": "projects/ngx-shortcut/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ngx-shortcut/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-shortcut/src/test.ts",
+            "tsConfig": "projects/ngx-shortcut/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-shortcut/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-shortcut/tsconfig.lib.json",
+              "projects/ngx-shortcut/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "video-clip",
