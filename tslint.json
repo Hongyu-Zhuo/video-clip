@@ -6,19 +6,21 @@
     "deprecation": {
       "severity": "warning"
     },
+    "directive-selector-prefix": [true, "vc", "sc", "vcr"],
+    "component-selector-prefix": [true, "vc", "sc", "vcr"],
     "component-class-suffix": true,
     "contextual-lifecycle": true,
     "directive-class-suffix": true,
     "directive-selector": [
       true,
       "attribute",
-      "vc",
+      ["vc", "sc", "vcr"],
       "camelCase"
     ],
     "component-selector": [
       true,
       "element",
-      "vc",
+      ["vc", "sc", "vcr"],
       "kebab-case"
     ],
     "import-blacklist": [
