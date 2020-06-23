@@ -14,5 +14,4 @@ describe('NgxShortcutService', () => {
     expect(service).toBeTruthy();
   });
 
-
 });
