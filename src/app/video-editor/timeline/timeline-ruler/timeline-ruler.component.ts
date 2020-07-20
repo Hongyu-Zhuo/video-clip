@@ -14,6 +14,9 @@ export class TimelineRulerComponent implements OnInit, AfterViewInit {
   private readonly resize$: Subject<void> = new Subject();
   @ViewChild('ruler', { static: true })
   private readonly ruler!: ElementRef<HTMLCanvasElement>;
+  private _leftOffset = 0;
+  tickSpacing!: number;
+  private _scale!: number;
 
   @Input()
   set timelineWidth(value: number) {
@@ -24,15 +27,28 @@ export class TimelineRulerComponent implements OnInit, AfterViewInit {
   }
 
   @Input()
-  leftOffset = 30;
+  set leftOffset(value: number) {
+    this._leftOffset = 0;
+    this.resize$.next();
+  }
 
-  @Input() private readonly scale = .5;
+  @Input()
+  set scale(value: number) {
+    this._scale = value;
+    this.tickSpacing = this.calcTickSpacing();
+    this.draw();
+    console.log(value);
+
+  }
 
   private _width = 0;
   private _height = 30 * window.devicePixelRatio;
 
   private step = 100;
   private readonly stepSafetyWidth = 100;
+  private readonly leftPadding = 30;
+  private readonly renderBoundsLeft = -50;
+
   constructor(
     private el: ElementRef,
     private viewContainer: ViewContainerRef,
@@ -51,6 +67,7 @@ export class TimelineRulerComponent implements OnInit, AfterViewInit {
     ).subscribe(() => {
       this.draw();
     });
+    // this.draw();
   }
   get width(): number {
     return this._width;
@@ -61,35 +78,53 @@ export class TimelineRulerComponent implements OnInit, AfterViewInit {
   get ctx(): CanvasRenderingContext2D {
     return this.ruler?.nativeElement.getContext('2d') as CanvasRenderingContext2D;
   }
-  init() { 
+  init() {
     // this.draw();
     // const scale = 55 + ( 55 - )
   }
   draw() {
+    debugger
     if (!this.ctx) return;
+    if (!this.width || !this._scale) return;
     console.log(this.ctx);
     const timeTextFontSize = 14;
     const timeTextLeftPadding = 5;
+    const timeTextY = 19;
     this.ctx.clearRect(0, 0, this.width, this.height);
     this.ctx.strokeStyle = 'rgba(255,255,255, .25)';
     this.ctx.fillStyle = 'rgba(255,255,255,0.25)';
     this.ctx.font = `bold ${timeTextFontSize * window.devicePixelRatio}px 'Source Sans Pro'`;
-    
-    for (let i = 0; i < this.width; i+= this.calcStep()) {
-      // const this.
-      this.ctx.beginPath();
-      this.ctx.moveTo(this.leftOffset + i, 0);
-      this.ctx.lineTo(this.leftOffset + i, this.height);
 
-      this.ctx.fillText(this.formatTime(i), this.leftOffset + i + timeTextLeftPadding, this.height )
-      this.ctx.stroke()
+    for (let i = 0; i < this.width; i += this.tickSpacing) {
+      const tickX = this.timeToPx(i);
+      // const this.
+       // No sense in drawing outside the visible range
+       if (tickX > this._width) {
+        break;
+      }
+      if (tickX < this.renderBoundsLeft) {
+          continue;
+      }
+      this.ctx.beginPath();
+      this.ctx.moveTo(tickX, 0);
+      this.ctx.lineTo(tickX, this.height);
+
+      // this.ctx.fillText(this.formatTime(i), this.leftOffset + i + timeTextLeftPadding, this.height )
+      this.ctx.fillText(
+        this.formatTime(i),
+        tickX + timeTextLeftPadding * window.devicePixelRatio,
+        timeTextY * window.devicePixelRatio
+      );
+      this.ctx.stroke();
     }
   }
-
-  calcStep(): number {
+  timeToPx(time: number): number {
+      return (time * this._scale - this._leftOffset + this.leftPadding) * window.devicePixelRatio;
+  }
+  calcTickSpacing(): number {
     const safetyWidth = this.stepSafetyWidth * window.devicePixelRatio;
     let stepSeconds = 1;
-    while( ( stepSeconds * this.scale + this.leftOffset ) * window.devicePixelRatio <= safetyWidth ) {
+    while( ( stepSeconds * this._scale + this._leftOffset ) * window.devicePixelRatio <= safetyWidth ) {
       stepSeconds ++;
     }
     return stepSeconds;
@@ -107,7 +142,7 @@ export class TimelineRulerComponent implements OnInit, AfterViewInit {
     const minutes = `${m}`.padStart(2, '0') + ':';
     const seconds = `${s}`.padStart(2, '0');
     return `${hours}${minutes}${seconds}`
-    
+
   }
 
 }

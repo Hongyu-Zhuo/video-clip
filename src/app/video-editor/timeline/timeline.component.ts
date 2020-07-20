@@ -16,6 +16,7 @@ export class TimelineComponent extends ShortcutBase implements OnInit, AfterView
   @ViewChild('clipSpace') private clipSpace!: ElementRef<HTMLDivElement>;
   unsubscribe$ = new Subject();
   timelineWidth$: BehaviorSubject<any> = new BehaviorSubject({} as DOMRect );
+  scale = 55;
   constructor(
     protected shortService: NgxShortcutService
   )  { super(shortService) }
