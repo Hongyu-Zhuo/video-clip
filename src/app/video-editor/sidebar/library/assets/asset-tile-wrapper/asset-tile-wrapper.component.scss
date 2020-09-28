@@ -1,0 +1,15 @@
+:host {
+    display: block;
+    height: 100%;
+}
+.asset-tile {
+    height: 100%;
+    width: 100%;
+    &_dragging {
+        width: 133.3px;
+        height: 75px;
+        border-radius: 4px;
+        overflow: hidden;
+        z-index: 500;
+    }
+}
