@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+
 import { VideoEditorRoutingModule } from './video-editor-routing.module';
 import { SideMenuComponent } from './side-menu/side-menu.component';
 import { VideoEditorComponent } from './video-editor.component';
@@ -17,6 +19,12 @@ import { TrackItemComponent } from './timeline/track-item/track-item.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { LibraryComponent } from './sidebar/library/library.component';
 import { FileDropZoneComponent } from './sidebar/library/file-drop-zone/file-drop-zone.component';
+import { DropIndicatorComponent } from '../shared/drop-indicator/drop-indicator.component';
+import { FileSelectDirective } from '../shared/file-select/file-select.directive';
+import { AssetsComponent } from './sidebar/library/assets/assets.component';
+import { NgxDndModule } from 'ngx-dnd';
+import { AssetTileWrapperComponent } from './sidebar/library/assets/asset-tile-wrapper/asset-tile-wrapper.component';
+import { AssetPreviewComponent } from './sidebar/library/assets/asset-preview/asset-preview.component';
 
 
 @NgModule({
@@ -34,12 +42,24 @@ import { FileDropZoneComponent } from './sidebar/library/file-drop-zone/file-dro
     TrackItemComponent,
     SidebarComponent,
     LibraryComponent,
-    FileDropZoneComponent
+    FileDropZoneComponent,
+    DropIndicatorComponent,
+
+    FileSelectDirective,
+
+    AssetsComponent,
+
+    AssetTileWrapperComponent,
+
+    AssetPreviewComponent
   ],
   imports: [
     CommonModule,
     VideoEditorRoutingModule,
-    MatIconModule
+    MatIconModule,
+    MatButtonModule,
+
+    NgxDndModule
   ]
 })
 export class VideoEditorModule { }

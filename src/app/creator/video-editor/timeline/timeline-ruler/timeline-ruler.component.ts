@@ -83,7 +83,6 @@ export class TimelineRulerComponent implements OnInit, AfterViewInit {
     // const scale = 55 + ( 55 - )
   }
   draw() {
-    debugger
     if (!this.ctx) return;
     if (!this.width || !this._scale) return;
     console.log(this.ctx);

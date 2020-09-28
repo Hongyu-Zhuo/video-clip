@@ -21,7 +21,7 @@ import { Store } from '@ngxs/store';
 @Component({
     selector: 'vc-asset-tile-wrapper',
     templateUrl: './asset-tile-wrapper.component.html',
-    styles: ['react-renderer'],
+    styles: ['./asset-tile-wrapper.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AssetTileWrapperComponent extends ReactWrapperComponent<AssetTileProps> {

@@ -1,0 +1,44 @@
+
+
+<vc-assets>
+
+</vc-assets>
+<vc-file-drop-zone *ngIf="false">
+    Drop media here to add
+</vc-file-drop-zone>
+<ng-container *ngIf="false">
+    <div class="viewport">
+        <div>
+            <vc-drop-indicator
+                class="add-media"
+                *ngIf="true"
+                [class.enabled]="true"
+                [actions]="actions"
+            >
+                <span i18n="tag|Information on how to add media for project"
+                    >Drag and drop your videos, audio</span
+                ><br /><span i18n="tag|Information on how to add media for project"
+                    >and images here to add</span
+                >
+                <ng-template #actions>
+                    <div class="button-container">
+                        <button
+                            mat-raised-button
+                            color="primary"
+                            class="file-select"
+                            multiple="true"
+                            (scFileSelect)="onFile($event)"
+                        >
+                            Browse my files
+                        </button>
+                        <ng-container>
+                            <!-- <sc-separator></sc-separator> -->
+                            <!-- <cc-dropbox-file-chooser></cc-dropbox-file-chooser> -->
+                        </ng-container>
+                    </div>
+                </ng-template>
+            </vc-drop-indicator>
+        </div>
+        <div></div>
+    </div>
+</ng-container>

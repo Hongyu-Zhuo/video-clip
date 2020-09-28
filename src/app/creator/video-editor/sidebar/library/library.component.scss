@@ -1,0 +1,27 @@
+@use "../../../../styles/mixin" as *;
+
+:host {
+    @include position();
+    display: flex;
+    height: 100%;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    user-select: none;
+}
+vc-file-drop-zone {
+    @include position(absolute, 0,0,0,0);
+    overflow: hidden;
+    padding: 48px;
+    pointer-events: none;
+}
+vc-drop-indicator {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    padding: 48px;
+    z-index: 1;
+}

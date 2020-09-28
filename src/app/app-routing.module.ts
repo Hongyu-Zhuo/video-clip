@@ -5,7 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   {
     path: 'editor',
-    loadChildren: () => import('./video-editor/video-editor.module').then(m => m.VideoEditorModule)
+    loadChildren: () => import('./creator/video-editor/video-editor.module').then(m => m.VideoEditorModule)
   },
   {
     path: '**',
