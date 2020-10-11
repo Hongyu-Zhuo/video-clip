@@ -5,7 +5,7 @@ import { DragBackend } from './backends/drag-backend';
 import { DragBackendEvent } from './backends/drag-backend-event';
 import { DragBackendEventType } from './backends/drag-backend-event-type';
 import { DragLayer } from './drag-layer.component';
-import { DragSource } from './drag-source/drag-source.directive';
+import { DragSourceDirective } from './drag-source/drag-source.directive';
 import { DropTarget } from './drop-target/drop-target.directive';
 import { DragRegistry } from './drag-registry';
 import { coerceArray } from './utils/coercion';
@@ -30,7 +30,7 @@ export class DragDispatcher2 {
     this.dragPreviewsEnabled$ = this.dragPreviewsEnabled.asObservable();
   }
 
-  connectDragSource(dragSource: DragSource, node: any): Observable<DragBackendEvent> {
+  connectDragSource(dragSource: DragSourceDirective, node: any): Observable<DragBackendEvent> {
     const id = `drag_${this.idCounter++}`;
     dragSource.id = id;
     this.registry.setSource(id, dragSource);
@@ -46,7 +46,7 @@ export class DragDispatcher2 {
     return dragSourceEventStream$;
   }
 
-  disconnectDragSource(dragSource: DragSource): void {
+  disconnectDragSource(dragSource: DragSourceDirective): void {
     const unsubscribe = this.unsubscribes.get(dragSource);
     if (unsubscribe) {
       unsubscribe();
@@ -110,10 +110,10 @@ export class DragDispatcher2 {
           event.type === DragBackendEventType.DROP
       ),
       filter(event => {
-        const source = this.registry.getSource(event.sourceId);
+        const source = this.registry.getSource(event.sourceId as string);
         return (
           (source && itemType.indexOf(source.itemType) > -1) ||
-          (!source && itemType.indexOf(event.sourceId) > -1)
+          (!source && itemType.indexOf(event.sourceId as string) > -1)
         );
       }),
       map(event => event.type === DragBackendEventType.DRAG_START)
@@ -134,7 +134,7 @@ export class DragDispatcher2 {
       )
       .subscribe(({ sourceId }) => {
         // tslint:disable-next-line:no-non-null-assertion
-        this.dragLayer!.hidePreview(sourceId);
+        this.dragLayer!.hidePreview(sourceId as string);
       });
     eventStream$
       .pipe(
@@ -151,7 +151,7 @@ export class DragDispatcher2 {
       )
       .subscribe(({ clientOffset, sourceOffset, targetId, item, sourceId }) => {
         // tslint:disable-next-line:no-non-null-assertion
-        this.dragLayer!.showPreview(sourceId, dragPreview, {
+        this.dragLayer!.showPreview(sourceId as string, dragPreview, {
           clientOffset,
           sourceOffset,
           canDrop: !!targetId,

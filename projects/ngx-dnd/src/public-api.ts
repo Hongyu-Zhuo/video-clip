@@ -8,11 +8,11 @@ export * from './lib/ngx-dnd.module';
 
 export * from './lib/drag-registry';
 export * from './lib/drag-monitor';
-export * from './lib/backend/drag-backend-event-type';
-export * from './lib/backend/drag-backend-event';
-export * from './lib/backend/dnd-backend.service';
-export * from './lib/backend/html5-drag-backend';
-export * from './lib/backend/test-drag-backend';
+export * from './lib/backends/drag-backend-event-type';
+export * from './lib/backends/drag-backend-event';
+export * from './lib/backends/dnd-backend.service';
+export * from './lib/backends/html5-drag-backend';
+export * from './lib/backends/test-drag-backend';
 export * from './lib/drag-layer.component';
 export * from './lib/drag-source/drag-source.directive';
 export * from './lib/drag-source/drag-source-dragging.directive';

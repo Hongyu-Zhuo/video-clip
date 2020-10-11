@@ -30,7 +30,7 @@ export class IfOver implements AfterViewInit, OnDestroy {
     if (!this.parent) {
       return;
     }
-    this.subscription = this.parent.hovered.subscribe(event => {
+    this.subscription = this.parent.hovered.subscribe((event: any) => {
       if (!!event && !this.hasView) {
         this.viewContainerRef.createEmbeddedView(this.templateRef);
         this.hasView = true;

@@ -1,22 +1,22 @@
-import { DragSource } from './drag-source/drag-source.directive';
+import { DragSourceDirective } from './drag-source/drag-source.directive';
 import { DropTarget } from './drop-target/drop-target.directive';
 import { Injectable } from '@angular/core';
 
 @Injectable({ providedIn: 'root' })
 export class DragRegistry {
-  private sources = new Map<string, DragSource>();
-  private targets = new Map<string, DropTarget>();
+  private sources = new Map<string, DragSourceDirective | undefined>();
+  private targets = new Map<string, DropTarget | undefined>();
 
-  getSource(id: string): DragSource {
+  getSource(id: string): DragSourceDirective | undefined {
     return this.sources.get(id);
   }
-  setSource(id: string, source?: DragSource): void {
+  setSource(id: string, source?: DragSourceDirective): void {
     this.sources.set(id, source);
   }
   deleteSource(id: string): void {
     this.sources.delete(id);
   }
-  getTarget(id: string): DropTarget {
+  getTarget(id: string): DropTarget | undefined {
     return this.targets.get(id);
   }
   setTarget(id: string, target?: DropTarget): void {

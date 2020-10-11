@@ -3,7 +3,7 @@ import { Subject } from 'rxjs';
 import { filter, map, take, distinctUntilChanged, takeUntil } from 'rxjs/operators';
 
 import { DragDispatcher2 } from '../drag-dispatcher.service';
-import { DragBackendEventType } from '../backend/drag-backend-event-type';
+import { DragBackendEventType } from '../backends/drag-backend-event-type';
 import { DropTarget } from '../drop-target/drop-target.directive';
 import { enterZone } from '../utils/enter-zone';
 @Directive({
@@ -56,6 +56,8 @@ export class DragSourceDirective<T = any> implements AfterViewInit, OnDestroy {
     private readonly dragDispatcher: DragDispatcher2,
     @Optional() public readonly parent?: DropTarget
   ) {
+    console.log('DragSourceDirective init');
+
     this.eventStream
       .pipe(filter(event => event.type === DragBackendEventType.DRAG_START))
       .subscribe(() => this.beginDrag());

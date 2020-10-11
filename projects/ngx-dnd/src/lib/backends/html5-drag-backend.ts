@@ -102,13 +102,13 @@ export class Html5DragBackend extends DragBackend implements OnDestroy {
     this.dragStartSourceId = null;
     if (!sourceIds) {
       const clientOffset = this.monitor.getMousePositionFromEvent(event);
-      this.activeSourceId = getNativeItemType(event.dataTransfer);
+      this.activeSourceId = getNativeItemType(event.dataTransfer as DataTransfer);
       this.emitEvent({
         type: DragBackendEventType.DRAG_START,
         sourceId: this.activeSourceId,
         clientOffset
       });
-      event.dataTransfer.dropEffect = 'none';
+      (event.dataTransfer as DataTransfer).dropEffect = 'none';
       return;
     }
     const { dataTransfer, target } = event;
@@ -144,9 +144,9 @@ export class Html5DragBackend extends DragBackend implements OnDestroy {
               previewImage,
               clientOffset
             );
-            dataTransfer.setDragImage(previewImage, dragOffsetX, dragOffsetY);
+            (dataTransfer as DataTransfer).setDragImage(previewImage, dragOffsetX, dragOffsetY);
           }
-          dataTransfer.setData('application/json', {} as any);
+          (dataTransfer as DataTransfer).setData('application/json', {} as any);
           this.activeSourceId = sourceId;
         } catch (err) {}
         return;
@@ -171,14 +171,14 @@ export class Html5DragBackend extends DragBackend implements OnDestroy {
     this.emitEvent({
       type: DragBackendEventType.DRAG_END,
       clientOffset,
-      sourceId
+      sourceId: sourceId as string
     });
     if (targetId) {
       this.emitEvent({
         type: DragBackendEventType.DRAG_OUT,
         clientOffset,
         sourceOffset,
-        sourceId,
+        sourceId: sourceId as string,
         targetId
       });
     }
@@ -222,7 +222,7 @@ export class Html5DragBackend extends DragBackend implements OnDestroy {
             sourceId
           });
           event.preventDefault();
-          event.dataTransfer.dropEffect = this.monitor.getDropEffectForTargetId(targetId);
+          (event.dataTransfer as DataTransfer).dropEffect = this.monitor.getDropEffectForTargetId(targetId);
           return;
         }
       }
@@ -244,7 +244,7 @@ export class Html5DragBackend extends DragBackend implements OnDestroy {
       sourceId
     });
     event.preventDefault();
-    event.dataTransfer.dropEffect = 'none';
+    (event.dataTransfer as DataTransfer).dropEffect = 'none';
   }
 
   private handleGlobalDrop(event: DragEvent): void {
@@ -264,11 +264,11 @@ export class Html5DragBackend extends DragBackend implements OnDestroy {
     const clientOffset = this.monitor.getMousePositionFromEvent(event, sourceOffset);
     for (let i = targetIds.length - 1; i >= 0; i--) {
       const targetId = targetIds[i];
-      const canDrop = this.monitor.canDrop(targetId, sourceId);
+      const canDrop = this.monitor.canDrop(targetId, sourceId as string);
       if (canDrop) {
         this.activeSourceId = null;
         if (sourceId === NATIVE_STRING) {
-          getNativeStrings(event.dataTransfer).then(strings => {
+          getNativeStrings(event.dataTransfer as DataTransfer).then(strings => {
             this.emitEvent({
               type: DragBackendEventType.DROP,
               clientOffset,
@@ -285,8 +285,8 @@ export class Html5DragBackend extends DragBackend implements OnDestroy {
           clientOffset,
           sourceOffset,
           targetId,
-          sourceId,
-          files: sourceId === NATIVE_FILE ? getNativeFiles(event.dataTransfer) : undefined
+          sourceId: sourceId as string,
+          files: sourceId === NATIVE_FILE ? getNativeFiles(event.dataTransfer as DataTransfer) : undefined
         });
         return;
       }
@@ -297,7 +297,7 @@ export class Html5DragBackend extends DragBackend implements OnDestroy {
         clientOffset,
         sourceOffset,
         targetId: activeTargetId,
-        sourceId
+        sourceId: sourceId as string
       });
     }
   }

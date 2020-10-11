@@ -17,7 +17,7 @@ import { Subscription } from 'rxjs';
 export class DropTargetIsOver implements AfterContentInit, OnDestroy {
   isActive = false;
 
-  @ContentChild(DropTarget) target: DropTarget;
+  @ContentChild(DropTarget) target!: DropTarget;
 
   @Input()
   set vcDropTargetOver(data: string[] | string) {
@@ -41,7 +41,7 @@ export class DropTargetIsOver implements AfterContentInit, OnDestroy {
     if (!this.target) {
       return;
     }
-    this.subscription = this.target.hovered.subscribe(_ => this.update());
+    this.subscription = this.target.hovered.subscribe((_: any) => this.update());
     this.update();
   }
 

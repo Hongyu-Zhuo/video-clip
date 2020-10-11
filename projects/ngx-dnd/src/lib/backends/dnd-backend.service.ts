@@ -10,9 +10,6 @@ export class DndBackendService implements OnDestroy {
     unsubscribe = new Subject();
 
     constructor() {
-        console.log('dnd init');
-
-        
         this.init(window);
     }
     ngOnDestroy() {
@@ -21,13 +18,13 @@ export class DndBackendService implements OnDestroy {
     }
     init(eventTarget: any) {
         console.log('dnd init');
-        
+
         const dragstart$ = fromEvent(eventTarget, 'dragstart') as Observable<DragEvent>;
         const dragend$ = fromEvent(eventTarget, 'dragend') as Observable<DragEvent>;
         const dragover$ = fromEvent(eventTarget, 'dragover') as Observable<DragEvent>;
         const dragleave$ = fromEvent(eventTarget, 'dragleave') as Observable<DragEvent>;
         const drop$ = fromEvent(eventTarget, 'drop') as Observable<DragEvent>;
-        
+
         dragstart$.pipe(tap(this.handleGlobalDragStart),takeUntil(this.unsubscribe)).subscribe();
         dragend$.pipe(tap(this.handleGlobalDragEnd),takeUntil(this.unsubscribe)).subscribe();
         dragover$.pipe(tap(this.handleGlobalDragOver),takeUntil(this.unsubscribe)).subscribe();
@@ -36,27 +33,27 @@ export class DndBackendService implements OnDestroy {
     }
     handleGlobalDragDrop(e: DragEvent): void {
         e.preventDefault();
-        throw new Error("Method not implemented.");
+        throw new Error('Method not implemented.');
     }
     handleGlobalDragLeave(e: DragEvent): void {
         e.preventDefault();
 
-        throw new Error("Method not implemented.");
+        throw new Error('Method not implemented.');
     }
     handleGlobalDragOver(e: DragEvent): void {
         e.preventDefault();
 
-        throw new Error("Method not implemented.");
+        throw new Error('Method not implemented.');
     }
     handleGlobalDragEnd(e: DragEvent): void {
         e.preventDefault();
 
-        throw new Error("Method not implemented.");
+        throw new Error('Method not implemented.');
     }
     handleGlobalDragStart(e: DragEvent): void {
         e.preventDefault();
 
-        throw new Error("Method not implemented.");
+        throw new Error('Method not implemented.');
     }
 }
 

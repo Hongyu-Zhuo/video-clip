@@ -15,7 +15,7 @@ export function getNativeItemType(dataTransfer: DataTransfer): string {
   return NATIVE_STRING;
 }
 
-export function getNativeFiles(dataTransfer: DataTransfer): File[] {
+export function getNativeFiles(dataTransfer: DataTransfer): (File | null)[] {
   const files = [];
   if (dataTransfer.items) {
     for (let j = 0; j < dataTransfer.items.length; j++) {

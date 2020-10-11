@@ -40,14 +40,16 @@ export class TestDragBackend extends DragBackend implements OnDestroy {
   stopDrag(): void {
     this.publish({
       ...this.lastEvent,
-      type: DragBackendEventType.DRAG_END
+      type: DragBackendEventType.DRAG_END,
+      clientOffset: { x: 0, y: 0 }
     });
   }
 
   drop(): void {
     this.publish({
       ...this.lastEvent,
-      type: DragBackendEventType.DROP
+      type: DragBackendEventType.DROP,
+      clientOffset: { x: 0, y: 0 }
     });
   }
 

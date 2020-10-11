@@ -17,7 +17,7 @@ import { Subscription } from 'rxjs';
 export class DropTargetDragging implements AfterContentInit, OnDestroy {
   isActive = false;
 
-  @ContentChild(DropTarget) target: DropTarget;
+  @ContentChild(DropTarget) target!: DropTarget;
 
   @Input()
   set vcDropTargetDragging(data: string[] | string) {
@@ -42,7 +42,7 @@ export class DropTargetDragging implements AfterContentInit, OnDestroy {
     if (!this.target) {
       return;
     }
-    this.subscription = this.target.dragging.subscribe(isDragging => this.update(isDragging));
+    this.subscription = this.target.dragging.subscribe((isDragging: boolean) => this.update(isDragging));
   }
 
   ngOnDestroy(): void {

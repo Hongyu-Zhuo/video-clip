@@ -13,6 +13,6 @@ export interface DragBackendEvent<T = any> {
   itemType?: string;
   clientOffset: Coordinates;
   sourceOffset?: Coordinates & { width: number; height: number };
-  files?: File[];
+  files?: (File | null)[];
   strings?: string[];
 }
