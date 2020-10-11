@@ -1,8 +1,8 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Directive } from '@angular/core';
 import { ShortcutKey, ShortcutCombination, NgxShortcutService } from './ngx-shortcut.service';
 
 @Component({
-  selector: 'lib-ngxShortcut',
+  selector: 'lib-ngx-shortcut',
   template: `
     <p>
       ngx-shortcut works!
@@ -46,7 +46,8 @@ export function Shortcut(...keys: ShortcutKey[]): MethodDecorator {
   }
 }
 
-export class ShortcutBase implements OnDestroy {
+@Directive()
+export class ShortcutBaseDirective implements OnDestroy {
   private readonly shortcutCallbacks: Array<() => void> = [];
   constructor(
     protected shortcutService: NgxShortcutService
