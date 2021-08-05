@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AssetsComponent implements OnInit {
 
+  asset = '';
   constructor() { }
 
   ngOnInit(): void {

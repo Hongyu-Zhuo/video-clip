@@ -1,4 +1,4 @@
-import { FileStreamService } from './../../../shared/file-stream/file-stream.service';
+import { FileStreamService } from './../../../../shared/file-stream/file-stream.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

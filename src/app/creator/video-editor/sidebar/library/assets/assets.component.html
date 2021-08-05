@@ -1,7 +1,21 @@
-<div vcDragSource>
+<div class="preview"
+    vcDragSource
+    vcDragSourceDragging="preview-dragging"
+    >
     <div class="video-wrap"
         >
         <video [src]="" width="130px" height="75px"></video>
     </div>
     <h4>demo</h4>
 </div>
+
+<ng-template #dragPreview let-canDrop="canDrop">
+    <div class="preview-container">
+        <vc-asset-preview
+            class="drag-preview"
+            [class.drag-preview__can-drop]="canDrop"
+            [asset]="asset"
+        >
+        </vc-asset-preview>
+    </div>
+</ng-template>

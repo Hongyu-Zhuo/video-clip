@@ -26,9 +26,9 @@
       "dom"
     ],
     "paths": {
-      "coommon": [
-        "dist/coommon/coommon",
-        "dist/coommon"
+      "common": [
+        "dist/common/common",
+        "dist/common"
       ],
       "context": [
         "dist/context/context",
@@ -41,6 +41,9 @@
       "ngx-shortcut": [
         "dist/ngx-shortcut/ngx-shortcut",
         "dist/ngx-shortcut"
+      ],
+      "@shared/*": [
+        "src/app/shared/*"
       ]
     }
   },

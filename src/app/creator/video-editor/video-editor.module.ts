@@ -19,12 +19,13 @@ import { TrackItemComponent } from './timeline/track-item/track-item.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { LibraryComponent } from './sidebar/library/library.component';
 import { FileDropZoneComponent } from './sidebar/library/file-drop-zone/file-drop-zone.component';
-import { DropIndicatorComponent } from '../shared/drop-indicator/drop-indicator.component';
-import { FileSelectDirective } from '../shared/file-select/file-select.directive';
+import { DropIndicatorComponent } from '../../shared/drop-indicator/drop-indicator.component';
+import { FileSelectDirective } from '../../shared/file-select/file-select.directive';
 import { AssetsComponent } from './sidebar/library/assets/assets.component';
 import { NgxDndModule } from 'ngx-dnd';
 import { AssetTileWrapperComponent } from './sidebar/library/assets/asset-tile-wrapper/asset-tile-wrapper.component';
 import { AssetPreviewComponent } from './sidebar/library/assets/asset-preview/asset-preview.component';
+import { VideoContextDirective } from '../video-context/video-context.directive';
 
 
 @NgModule({
@@ -51,7 +52,9 @@ import { AssetPreviewComponent } from './sidebar/library/assets/asset-preview/as
 
     AssetTileWrapperComponent,
 
-    AssetPreviewComponent
+    AssetPreviewComponent,
+
+    VideoContextDirective
   ],
   imports: [
     CommonModule,

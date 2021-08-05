@@ -1,4 +1,10 @@
-
+<div
+    vcDropTarget
+    vcDropTargetDragging="full-content--dragging"
+    [itemType]="['__FILE__']"
+    vcDropTargetOver="content--over"
+    (dropped)="onFile($event.item)"
+></div>
 
 <vc-assets>
 

@@ -1,4 +1,3 @@
-import { ReactWrapperComponent } from '@angular-react/core';
 import {
     ChangeDetectionStrategy,
     ChangeDetectorRef,
@@ -8,15 +7,7 @@ import {
     Renderer2,
     ViewChild,
 } from '@angular/core';
-import { AssetThumbnailService } from '@app/creator/thumbnail/asset-thumbnail.service';
-import { OwnershipService } from '@app/payment/ownership/ownership.service';
-import { SoundwaveService } from '@app/shared/media-ui/components/sound-wave/soundwave.service';
-import { Asset } from '@clipchamp/supercut';
-import { AssetTileProps } from './AssetTile';
-import { DragReadContextType, DragWriteContextType } from '@clipchamp/dnd';
 import { Subject } from 'rxjs';
-import { ScalingContextType } from '@app/creator/editor/timeline/Timeline.util';
-import { Store } from '@ngxs/store';
 
 @Component({
     selector: 'vc-asset-tile-wrapper',
@@ -24,40 +15,40 @@ import { Store } from '@ngxs/store';
     styles: ['./asset-tile-wrapper.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AssetTileWrapperComponent extends ReactWrapperComponent<AssetTileProps> {
-    @Input()
-    asset!: Asset;
-    @Input()
-    freeStock!: string[];
-    @Input()
-    isReady!: boolean;
-    @Input()
-    permanentUrl!: string;
+export class AssetTileWrapperComponent {
+    // @Input()
+    // asset!: Asset;
+    // @Input()
+    // freeStock!: string[];
+    // @Input()
+    // isReady!: boolean;
+    // @Input()
+    // permanentUrl!: string;
 
-    @Input()
-    dndNew!: boolean;
+    // @Input()
+    // dndNew!: boolean;
 
-    @Input()
-    dragReadContext!: Subject<DragReadContextType>;
+    // @Input()
+    // dragReadContext!: Subject<DragReadContextType>;
 
-    @Input()
-    dragWriteContext!: Subject<DragWriteContextType>;
+    // @Input()
+    // dragWriteContext!: Subject<DragWriteContextType>;
 
-    @Input()
-    scalingContext!: Subject<ScalingContextType>;
+    // @Input()
+    // scalingContext!: Subject<ScalingContextType>;
 
-    @ViewChild('reactNode', { static: true })
-    protected reactNodeRef!: ElementRef;
+    // @ViewChild('reactNode', { static: true })
+    // protected reactNodeRef!: ElementRef;
 
-    constructor(
-        elementRef: ElementRef,
-        changeDetectorRef: ChangeDetectorRef,
-        renderer: Renderer2,
-        readonly soundWave: SoundwaveService,
-        readonly thumbnail: AssetThumbnailService,
-        readonly ownership: OwnershipService,
-        readonly store: Store
-    ) {
-        super(elementRef, changeDetectorRef, renderer);
-    }
+    // constructor(
+    //     elementRef: ElementRef,
+    //     changeDetectorRef: ChangeDetectorRef,
+    //     renderer: Renderer2,
+    //     readonly soundWave: SoundwaveService,
+    //     readonly thumbnail: AssetThumbnailService,
+    //     readonly ownership: OwnershipService,
+    //     readonly store: Store
+    // ) {
+    //     super(elementRef, changeDetectorRef, renderer);
+    // }
 }

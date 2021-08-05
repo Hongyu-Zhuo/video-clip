@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'vc-asset-preview',
@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AssetPreviewComponent implements OnInit {
 
+  @Input() asset!: any;
   constructor() { }
 
   ngOnInit(): void {
