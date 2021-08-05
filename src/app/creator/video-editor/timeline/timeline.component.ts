@@ -17,6 +17,7 @@ export class TimelineComponent extends ShortcutBaseDirective implements OnInit, 
   unsubscribe$ = new Subject();
   timelineWidth$: BehaviorSubject<any> = new BehaviorSubject({} as DOMRect );
   scale = 55;
+  tracks = [];
   constructor(
     protected shortService: NgxShortcutService
   )  { super(shortService) }
@@ -44,5 +45,8 @@ export class TimelineComponent extends ShortcutBaseDirective implements OnInit, 
   @Shortcut('Control', 'v')
   doPase() {
     console.log('doPase run');
+  }
+  trackBy(i: number): number {
+    return i;
   }
 }

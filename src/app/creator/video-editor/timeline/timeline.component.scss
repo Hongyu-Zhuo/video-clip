@@ -1,0 +1,42 @@
+// tl: timeline
+.tl {
+    &-clip-space {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        overflow-x: scroll;
+        overflow-y: auto;
+        position: relative;
+        height: calc(100% - 71px);
+        background: linear-gradient(180deg,rgba(102,93,195,.06) 0,rgba(102,93,195,0) 50%,transparent 0,transparent);
+        background-size: 100% 200%;
+        background-position: 0 100%;
+        transition: background-position .2s ease-in-out;
+    
+        &::-webkit-scrollbar {
+            height: 12px;
+            width: 12px;
+        }
+        &::-webkit-scrollbar-corner {
+            background-color: #1c1c26;
+        }
+        &::-webkit-scrollbar-thumb {
+            border-radius: 100px;
+            background-color: #334;
+            -webkit-box-shadow: none;
+        }
+        &::-webkit-scrollbar-track {
+            border-radius: 100px;
+            background-color: #17171c;
+            -webkit-box-shadow: none;
+        }
+    }
+    &-clip-space {
+        &__inner {
+            min-width: 100%;
+            padding: 32px 0;
+            box-sizing: content-box;
+        }
+    }
+
+}

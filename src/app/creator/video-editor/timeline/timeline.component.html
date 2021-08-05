@@ -4,21 +4,31 @@
     [scale]="scale"
 ></vc-timeline-ruler>
 <div #clipSpace
+    class="tl-clip-space"
     vcDropTarget
-    vcDropTargetDragging="viewport__dragging"
+    vcDropTargetDragging="clip-space__dragging"
     vcNewTrackIndicator
     vcSnappingBehavior
     cdkScrollable
     [itemType]="[
-            'video',
-            'audio',
-            'title',
-            'image',
-            'background',
-            'template',
-            'logo',
-            'overlay'
-        ]"
+        'video',
+        'audio',
+        'title',
+        'image',
+        'background',
+        'template',
+        'logo',
+        'overlay'
+    ]"
 >
+    <div class="tl-clip-space__inner">
+        <vc-track 
+            *ngFor="let track of tracks; trackIndex as index; trackBy: trackBy">
+            <ng-container *ngFor="let trackItem of track.items; trackItemIndex as index;">
+                <vc-track-item>
 
+                </vc-track-item>
+            </ng-container>
+        </vc-track>
+    </div>
 </div>
