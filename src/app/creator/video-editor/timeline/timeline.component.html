@@ -3,6 +3,22 @@
     [timelineWidth]="(timelineWidth$ | async)?.width"
     [scale]="scale"
 ></vc-timeline-ruler>
-<div #clipSpace>
+<div #clipSpace
+    vcDropTarget
+    vcDropTargetDragging="viewport__dragging"
+    vcNewTrackIndicator
+    vcSnappingBehavior
+    cdkScrollable
+    [itemType]="[
+            'video',
+            'audio',
+            'title',
+            'image',
+            'background',
+            'template',
+            'logo',
+            'overlay'
+        ]"
+>
 
 </div>
