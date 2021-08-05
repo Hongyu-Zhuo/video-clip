@@ -138,6 +138,8 @@ export class Html5DragBackend extends DragBackend implements OnDestroy {
           });
         });
         try {
+          console.log(sourceId);
+
           const previewImage = this.monitor.getPreviewImageForSourceId(sourceId);
           if (previewImage) {
             const { x: dragOffsetX, y: dragOffsetY } = getDragPreviewOffset(
