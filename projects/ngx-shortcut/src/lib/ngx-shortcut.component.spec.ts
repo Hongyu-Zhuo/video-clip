@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { NgxShortcutComponent } from './ngx-shortcut.component';
 
@@ -6,7 +6,7 @@ describe('NgxShortcutComponent', () => {
   let component: NgxShortcutComponent;
   let fixture: ComponentFixture<NgxShortcutComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ NgxShortcutComponent ]
     })

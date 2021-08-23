@@ -3,11 +3,11 @@
 
 :host {
     @include flexLayout(column);
-    @include flexLayoutAlign(start, center);
+    @include flexLayoutAlign(flex-start, center);
     padding: 0 1rem;
 }
 .player {
-    
+
 }
 // vc-aspect-ratio-container {
 //     // order: 1;

@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { AspectRatioContainerComponent } from './aspect-ratio-container.component';
 
@@ -6,7 +6,7 @@ describe('AspectRatioContainerComponent', () => {
   let component: AspectRatioContainerComponent;
   let fixture: ComponentFixture<AspectRatioContainerComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ AspectRatioContainerComponent ]
     })

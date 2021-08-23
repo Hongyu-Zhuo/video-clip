@@ -1,18 +1,18 @@
 import {
-    ChangeDetectionStrategy,
-    ChangeDetectorRef,
-    Component,
-    ElementRef,
-    Input,
-    Renderer2,
-    ViewChild,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  Input,
+  Renderer2,
+  ViewChild,
 } from '@angular/core';
 import { Subject } from 'rxjs';
 
 @Component({
     selector: 'vc-asset-tile-wrapper',
     templateUrl: './asset-tile-wrapper.component.html',
-    styles: ['./asset-tile-wrapper.component.scss'],
+    styleUrls: ['./asset-tile-wrapper.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AssetTileWrapperComponent {
