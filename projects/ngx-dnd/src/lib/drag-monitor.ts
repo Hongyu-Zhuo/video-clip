@@ -60,7 +60,7 @@ export class DragMonitor {
     return undefined;
   }
 
-  getDropEffectForTargetId(targetId: string): string {
+  getDropEffectForTargetId(targetId: string): 'none' | 'copy' | 'link' | 'move' {
     const target = this.registry.getTarget(targetId);
     if (!target) {
       return 'none';

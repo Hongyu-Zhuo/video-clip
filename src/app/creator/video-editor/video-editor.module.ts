@@ -61,7 +61,6 @@ import { VideoContextDirective } from '../video-context/video-context.directive'
     VideoEditorRoutingModule,
     MatIconModule,
     MatButtonModule,
-
     NgxDndModule
   ]
 })
