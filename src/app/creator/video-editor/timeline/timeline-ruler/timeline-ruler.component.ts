@@ -118,7 +118,7 @@ export class TimelineRulerComponent implements OnInit, AfterViewInit {
     }
   }
   timeToPx(time: number): number {
-      return (time * this._scale - this._leftOffset + this.leftPadding) * window.devicePixelRatio;
+    return (time * this._scale - this._leftOffset + this.leftPadding) * window.devicePixelRatio;
   }
   calcTickSpacing(): number {
     const safetyWidth = this.stepSafetyWidth * window.devicePixelRatio;
